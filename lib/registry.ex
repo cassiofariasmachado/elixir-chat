@@ -1,7 +1,7 @@
 defmodule Chat.Registry do
   use Agent
 
-  @name {:global, :chat_registry}
+  @name {:global, __MODULE__}
 
   def start_link(_initial_state) do
     Agent.start_link(fn -> %{} end, name: @name)

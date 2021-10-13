@@ -2,8 +2,6 @@ defmodule Chat do
   alias Chat.Registry
 
   def register(nick) do
-    Registry.start_link(%{})
-
     with {:ok, pid} <- start_link(),
          {:ok} <- Registry.register(nick, pid) do
       {:ok, "Successfully registered"}
